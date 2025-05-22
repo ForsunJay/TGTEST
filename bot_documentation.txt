@@ -1,0 +1,230 @@
+Telegram Bot Documentation
+=======================
+
+1. System Overview
+-----------------
+The bot is a Telegram-based request management system that handles financial requests with different user roles and permissions. It's built using Python with the python-telegram-bot library and uses SQLAlchemy for database operations.
+
+2. Core Components
+----------------
+2.1 BotConfig Class
+- Manages all configuration settings
+- Handles environment variables
+- Defines constants for:
+  * Projects
+  * Currencies
+  * Sources
+  * User groups (Admins, FinControl)
+  * Permissions
+
+2.2 BotHandlers Class
+- Contains all bot interaction logic
+- Manages conversation states
+- Handles user inputs and responses
+- Implements request management functionality
+
+2.3 Bot Class
+- Main application class
+- Initializes database and configuration
+- Sets up conversation handlers
+- Manages bot lifecycle
+
+3. User Roles and Permissions
+---------------------------
+3.1 User Groups:
+- Administrators (ADMIN_IDS)
+- FinControl (FINCONTROL_IDS)
+- All Access Administrators (ALL_ACCESS_ADMIN_IDS)
+- Regular Users
+
+3.2 Permission Types:
+- PERMISSION_CREATE: Create requests
+- PERMISSION_APPROVE: Approve requests
+- PERMISSION_REJECT: Reject requests
+- PERMISSION_EDIT: Edit requests
+- PERMISSION_VIEW_ALL: View all requests
+
+4. Request Management Flow
+------------------------
+4.1 Request Creation:
+1. User selects project
+2. Chooses currency
+3. Enters amount
+4. Selects source
+5. Attaches document (optional)
+6. Adds note
+7. Sets period
+8. Confirms request
+
+4.2 Request Processing:
+- Pending → Waiting → Paid
+- Can be rejected at any stage
+- Supports comments and status updates
+- Maintains history of changes
+
+5. Database Structure
+-------------------
+5.1 Main Tables:
+- Users: Stores user information
+- Requests: Stores request details
+- Comments: Stores request comments
+
+5.2 Request Fields:
+- ID
+- Project
+- Amount
+- Currency
+- Source
+- Status
+- Notes
+- Document path
+- Creation/Update timestamps
+
+6. Key Features
+-------------
+6.1 Request Management:
+- Create new requests
+- View request details
+- Edit existing requests
+- Add comments
+- Change request status
+- Attach documents
+
+6.2 User Interface:
+- Inline keyboards for navigation
+- Status emojis for visual feedback
+- Pagination for request lists
+- Filter options for request viewing
+
+6.3 Export Functionality:
+- Export requests to Excel/CSV
+- Export user data to Excel/CSV
+- Customizable export formats
+
+7. Security Features
+-----------------
+7.1 Access Control:
+- Role-based permissions
+- Source-specific access
+- Project-specific access
+- Admin-only functions
+
+7.2 Data Validation:
+- Input validation for all fields
+- Document type verification
+- Amount format checking
+- Date format validation
+
+8. Error Handling
+---------------
+8.1 Error Types:
+- Database errors
+- Input validation errors
+- Permission errors
+- File handling errors
+
+8.2 Error Responses:
+- User-friendly error messages
+- Detailed error logging
+- Automatic error recovery
+- Support contact information
+
+9. Logging System
+---------------
+9.1 Log Types:
+- Request creation
+- Status changes
+- Comments
+- Error logs
+- User actions
+
+9.2 Log Format:
+- Timestamp
+- Action type
+- User ID
+- Request ID
+- Additional details
+
+10. File Management
+----------------
+10.1 Document Handling:
+- Document upload
+- File type verification
+- Storage management
+- Document retrieval
+
+10.2 Export Files:
+- Temporary file creation
+- Format conversion
+- File cleanup
+- Secure file transfer
+
+11. State Management
+-----------------
+11.1 Conversation States:
+- Project selection
+- Amount entry
+- Currency selection
+- Source selection
+- Document attachment
+- Note entry
+- Period selection
+- Date selection
+- Request confirmation
+
+11.2 State Transitions:
+- Forward navigation
+- Back navigation
+- State validation
+- Error recovery
+
+12. Performance Optimizations
+--------------------------
+12.1 Caching:
+- User information caching
+- Request details caching
+- Cache timeout management
+
+12.2 Database Optimization:
+- Efficient queries
+- Pagination
+- Index usage
+- Connection management
+
+13. Maintenance Features
+---------------------
+13.1 System Health:
+- Error monitoring
+- Performance tracking
+- Resource usage monitoring
+
+13.2 Data Management:
+- Regular cleanup
+- Backup procedures
+- Data integrity checks
+
+14. Future Improvements
+--------------------
+14.1 Potential Enhancements:
+- Advanced reporting
+- Automated notifications
+- Enhanced security features
+- Performance optimizations
+- Additional export formats
+- Mobile optimization
+
+15. Configuration
+--------------
+15.1 Environment Variables:
+- TELEGRAM_TOKEN
+- ADMIN_IDS
+- FINCONTROL_IDS
+- ALL_ACCESS_ADMIN_IDS
+- Permission settings
+- Source mappings
+
+15.2 Customization Options:
+- Project definitions
+- Currency settings
+- Source configurations
+- Permission rules 
